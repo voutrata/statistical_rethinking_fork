@@ -18,6 +18,6 @@ def extract_quantile_columns(df: pl.DataFrame,
     return  df.with_columns(**{f"{prefix}_{outcome_name}_{str(quant*100)}": quants[i].to_numpy() for i,quant in enumerate(quantiles)})
 
 
-def plot_trace(trace: az.InferenceData) -> None:
-    az.plot_trace(trace)
+def plot_trace(trace: az.InferenceData, **kwargs) -> None:
+    az.plot_trace(trace, **kwargs)
     plt.tight_layout()
